@@ -8,8 +8,11 @@ part of 'estabelecimento_model.dart';
 
 EstabelecimentoModel _$EstabelecimentoModelFromJson(Map<String, dynamic> json) {
   return EstabelecimentoModel(
-    estabelecimentoId: json['estabelecimento_id'] as int,
-    name: json['name'] as String,
+    cnpj: json['cnpj'] as String,
+    localizacao: json['localizacao'] as String,
+    nome: json['nome'] as String,
+    tipoEstabelecimento: json['tipoEstabelecimento'] as String,
+    icone: json['icone'] as String,
   )..states = (json['states'] as List)
       ?.map((e) =>
           e == null ? null : StateModel.fromJson(e as Map<String, dynamic>))
@@ -18,7 +21,10 @@ EstabelecimentoModel _$EstabelecimentoModelFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$EstabelecimentoModelToJson(EstabelecimentoModel instance) =>
     <String, dynamic>{
-      'estabelecimento_id': instance.estabelecimentoId,
-      'name': instance.name,
+      'cnpj': instance.cnpj,
+      'localizacao': instance.localizacao,
+      'nome':instance.nome,
+      'tipoEstabelecimento':instance.tipoEstabelecimento,
+      'icone' : instance.icone,
       'states': instance.states,
     };

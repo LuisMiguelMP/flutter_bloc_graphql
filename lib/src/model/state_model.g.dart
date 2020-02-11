@@ -8,14 +8,14 @@ part of 'state_model.dart';
 
 StateModel _$StateModelFromJson(Map<String, dynamic> json) {
   return StateModel(
-    name: json['name'] as String,
-    stateId: json['state_id'] as int,
-  )..estabelecimentoId = json['estabelecimento_id'] as int;
+    nome: json['nome'] as String,
+    localizacao: json['localizacao'] as String,
+  )..cnpj = json['cnpj'] as String;
 }
 
 Map<String, dynamic> _$StateModelToJson(StateModel instance) =>
     <String, dynamic>{
-      'state_id': instance.stateId,
-      'estabelecimento_id': instance.estabelecimentoId,
-      'name': instance.name,
+      'localizacao': instance.stateId,
+      'cnpj': instance.cnpj,
+      'nome': instance.nome,
     };

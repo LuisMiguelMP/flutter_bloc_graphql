@@ -36,7 +36,7 @@ class _RewardState extends State<RewardScreen> {
                     textColor: Colors.white,
                     splashColor: Colors.blueGrey,
                     onPressed: scan,
-                    child: const Text('Iniciar câmera para ler o código da recompensa')
+                    child: const Text('Ler código da recompensa')
                 ),
               )
               ,

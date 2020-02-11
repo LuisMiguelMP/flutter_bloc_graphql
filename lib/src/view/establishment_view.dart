@@ -24,29 +24,44 @@ class _EstablishmentPageState extends State<EstablishmentPage> {
       appBar: AppBar(
         title: Text("B)app => pontue, poupando papel (\$)"),
       ),
-      
-      body: 
-      StreamBuilder<List<EstabelecimentoModel>>(
+      body: StreamBuilder<List<EstabelecimentoModel>>(
         stream: _bloc.outEstabelecimentos,
         builder: (context, snapshot) {
           if (!snapshot.hasData) return CircularProgressIndicator();
-
           return ListView(
               children: snapshot.data.map((estabelecimento) {
-            return ListTile(
-              title: Text(estabelecimento.name),
-              trailing: Icon(Icons.arrow_right),
-              onTap: () {                
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => StatePage(estabelecimento)));
-              },
-              
+            return Card(
+              child: Padding(
+                padding: EdgeInsets.all(13.0),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage(estabelecimento.icone),
+                  ),
+                  title: Text(estabelecimento.nome),
+                  trailing: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 1, 0, 1),
+                    child: Container(
+                      width: 94,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.redAccent),
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      child: Text(estabelecimento.tipoEstabelecimento,
+                          textAlign: TextAlign.center),
+                    ),
+                  ),
+                  subtitle: Text(estabelecimento.localizacao),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => StatePage(estabelecimento)));
+                  },
+                ),
+              ),
             );
           }).toList());
         },
-        
       ),
     );
-    
   }
 }

@@ -5,14 +5,20 @@ part 'estabelecimento_model.g.dart';
 
 @JsonSerializable()
 class EstabelecimentoModel {
-  @JsonKey(name: 'estabelecimento_id')
-  int estabelecimentoId;
-  String name;
+  @JsonKey(name: 'nome')
+  String localizacao;
+  String cnpj;
+  String nome;
+  String tipoEstabelecimento;
+  String icone;
   List<StateModel> states;
 
   EstabelecimentoModel({
-    this.estabelecimentoId,
-    this.name
+    this.cnpj,
+    this.localizacao,
+    this.nome,
+    this.tipoEstabelecimento,
+    this.icone
   });
 
   factory EstabelecimentoModel.fromJson(Map<String, dynamic> json) =>

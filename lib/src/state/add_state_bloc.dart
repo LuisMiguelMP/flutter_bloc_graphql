@@ -15,7 +15,7 @@ class AddStateBloc extends BlocBase {
 
   Future<StateModel> create() async {
     var state = await _repository.createState(
-        StateModel(name: controllerName.text, estabelecimentoId: _estabelecimento.estabelecimentoId));
+        StateModel(localizacao: controllerName.text, nome: _estabelecimento.nome));
     controllerName.clear();
     return state;
   }

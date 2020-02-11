@@ -12,8 +12,11 @@ class HomeRepository extends Disposable {
     {
       estabelecimento{
         cnpj
+        nome
         localizacao
         telefone
+        tipoEstabelecimento
+        icone
       }
     }
     """;

@@ -16,28 +16,42 @@ class ScoreScreen extends StatefulWidget {
 
 class ScoreScreenState extends State<ScoreScreen> {
 
-  static const double _topSectionTopPadding = 50.0;
+  // static const double _topSectionTopPadding = 50.0;
   // static const double _topSectionBottomPadding = 20.0;
   static const double _topSectionHeight = 50.0;
 
   GlobalKey globalKey = new GlobalKey();
-  String _dataString = "Seja bem-vindo!";
-  String _inputErrorText;
-  final TextEditingController _textController =  TextEditingController();
+  // String _dataString = "Seja bem-vindo!";
+  // String _inputErrorText;
+  // final TextEditingController _textController =  TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('B)app => pontuando... *-*'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.share),
-            onPressed: _captureAndSharePng,
-          )
-        ],
+      appBar: new AppBar(
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "B)app => Pontuador",
+              style: TextStyle(color: Colors.white, fontSize: 16.0),
+            ),
+            Text(
+              "Apresente o QRCode ao atendente...",
+              style: TextStyle(color: Colors.white, fontSize: 14.0),
+            )
+          ],
+        ),
+        leading: new Padding(
+          padding: const EdgeInsets.all(7.0),
+          child: new CircleAvatar(
+            backgroundImage: new AssetImage("assets/trofeu.jpg"),
+          ),
+        ),
+        actions: <Widget>[new Padding(padding:const EdgeInsets.all(13.0), child:Icon(Icons.share))],
       ),
-      body: _contentWidget(),
+            body: _contentWidget(),
     );
   }
 
@@ -68,7 +82,7 @@ class ScoreScreenState extends State<ScoreScreen> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(
-              top: _topSectionTopPadding,
+              // top: _topSectionTopPadding,
               left: 20.0,
               right: 10.0,
               // bottom: _topSectionBottomPadding,
@@ -79,27 +93,27 @@ class ScoreScreenState extends State<ScoreScreen> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Expanded(
-                    child:  TextField(
-                      controller: _textController,
-                      decoration:  InputDecoration(
-                        hintText: "Insira uma mensagem",
-                        errorText: _inputErrorText,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child:  FlatButton(
-                      child:  Text("Enviar"),
-                      onPressed: () {
-                        setState((){
-                          _dataString = _textController.text;
-                          _inputErrorText = null;
-                        });
-                      },
-                    ),
-                  )
+                  // Expanded(
+                  //   child:  TextField(
+                  //     controller: _textController,
+                  //     decoration:  InputDecoration(
+                  //       hintText: "Insira uma mensagem",
+                  //       errorText: _inputErrorText,
+                  //     ),
+                  //   ),
+                  // ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(left: 10.0),
+                  //   child:  FlatButton(
+                  //     child:  Text("Enviar"),
+                  //     onPressed: () {
+                  //       setState((){
+                  //         _dataString = _textController.text;
+                  //         _inputErrorText = null;
+                  //       });
+                  //     },
+                  //   ),
+                  // )
                 ],
               ),
             ),
@@ -107,9 +121,10 @@ class ScoreScreenState extends State<ScoreScreen> {
           Expanded(
             child:  Center(
               child: RepaintBoundary(
+
                 key: globalKey,
                 child: QrImage(
-                  data: _dataString,
+                  data: "batata", //substituir pelo UUID do cliente
                   size: 0.5 * bodyHeight
                 ),
               ),

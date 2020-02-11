@@ -17,10 +17,10 @@ class StateRepository extends Disposable {
         }
       }
     """;
-    var data = await connection.mutation(query, variables: {"name": state.name, "country_id": state.estabelecimentoId});
+    var data = await connection.mutation(query, variables: {"nome": state.nome, "cnpj": state.cnpj});
     var id = data["data"]["insert_states"]["returning"][0]["state_id"];
 
-    return StateModel(stateId: id, name: state.name);
+    return StateModel(localizacao: id, nome: state.nome);
   }
 
   Future<int> remove(int stateId) async {

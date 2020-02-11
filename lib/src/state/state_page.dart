@@ -20,10 +20,10 @@ class _StatePageState extends State<StatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("State"),
+        title: Text("Fidelização"),
       ),
       body: ListView.builder(
-        itemCount: widget.estabelecimento.states.length,
+        itemCount: widget.estabelecimento.cnpj.length,
         itemBuilder: (context, index) {
           StateModel state = widget.estabelecimento.states[index];
           return Dismissible(
@@ -33,7 +33,7 @@ class _StatePageState extends State<StatePage> {
                 if (affectedRows > 0) widget.estabelecimento.states.remove(state);
               },
               child: ListTile(
-                title: Text(state.name),
+                title: Text(state.nome),
               ));
         },
       ),
