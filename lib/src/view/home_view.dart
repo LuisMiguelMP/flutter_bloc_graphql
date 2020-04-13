@@ -37,6 +37,32 @@ RewardScreen()
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                
+                gradient: LinearGradient(colors: <Color>[
+                Colors.pink,
+                Colors.pink,
+                Colors.pink,
+                ])),
+              child: Text('Opções'),
+            ),
+            ListTile(title:Text('Acessar'),
+            ),
+            ListTile(title:Text('Como funciona'),
+            ),
+            ListTile(title:Text('Contato')
+            ),
+            ListTile(title:Text('Quem somos')
+            ),
+            ListTile(title:Text('Tornar-se parceiro')
+            )
+          ],
+        ),
+      ),
       body: 
       _children[_currentIndex],
            bottomNavigationBar: BottomNavigationBar(
@@ -50,11 +76,11 @@ RewardScreen()
          ),
          BottomNavigationBarItem(
            icon: new Icon(Icons.check),
-           title: new Text('Receber pontuação'),
+           title: new Text('Pontuar'),
          ),
          BottomNavigationBarItem(
            icon: Icon(Icons.attach_money),
-           title: Text('Resgatar prêmios')
+           title: Text('Recompensas')
          )
        ],
      ),

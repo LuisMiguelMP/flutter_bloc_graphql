@@ -7,7 +7,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'Blapp',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.pink,
       ),
       home: HomeModule(),
     );

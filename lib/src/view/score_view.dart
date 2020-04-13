@@ -34,20 +34,14 @@ class ScoreScreenState extends State<ScoreScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "B)app => Pontuador",
+              "Receber pontuação",
               style: TextStyle(color: Colors.white, fontSize: 16.0),
             ),
             Text(
-              "Apresente o QRCode ao atendente...",
+              "Apresente ou compartilhe o QRCode",
               style: TextStyle(color: Colors.white, fontSize: 14.0),
             )
           ],
-        ),
-        leading: new Padding(
-          padding: const EdgeInsets.all(7.0),
-          child: new CircleAvatar(
-            backgroundImage: new AssetImage("assets/trofeu.jpg"),
-          ),
         ),
         actions: <Widget>[new Padding(padding:const EdgeInsets.all(13.0), child:Icon(Icons.share))],
       ),

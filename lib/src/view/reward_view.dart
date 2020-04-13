@@ -22,7 +22,7 @@ class _RewardState extends State<RewardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: new AppBar(
-          title: new Text('B)app => recebendo o mimo <3'),
+          title: new Text('Recompensas disponíveis'),
         ),
         body: new Center(
           child: new Column(
@@ -32,11 +32,11 @@ class _RewardState extends State<RewardScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 child: RaisedButton(
-                    color: Colors.blue,
+                    color: Colors.pink,
                     textColor: Colors.white,
-                    splashColor: Colors.blueGrey,
+                    splashColor: Colors.grey,
                     onPressed: scan,
-                    child: const Text('Ler código da recompensa')
+                    child: const Text('Resgatar')
                 ),
               )
               ,
@@ -57,15 +57,15 @@ class _RewardState extends State<RewardScreen> {
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
-          this.barcode = 'The user did not grant the camera permission!';
+          this.barcode = 'O usuário não concedeu permissão para utilizar a câmera.';
         });
       } else {
-        setState(() => this.barcode = 'Unknown error: $e');
+        setState(() => this.barcode = 'Erro: $e');
       }
     } on FormatException{
-      setState(() => this.barcode = 'null (User returned using the "back"-button before scanning anything. Result)');
+      setState(() => this.barcode = 'O usuário cancelou a leitura do QRCode.');
     } catch (e) {
-      setState(() => this.barcode = 'Unknown error: $e');
+      setState(() => this.barcode = 'Erro: $e');
     }
   }
 }

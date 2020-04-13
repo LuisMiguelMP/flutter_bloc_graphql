@@ -4,6 +4,7 @@ import 'package:blapp/src/model/estabelecimento_model.dart';
 import 'package:blapp/src/state/state_page.dart';
 import '../control/home_module.dart';
 
+
 class EstablishmentPage extends StatefulWidget {
   @override
   _EstablishmentPageState createState() => _EstablishmentPageState();
@@ -22,7 +23,7 @@ class _EstablishmentPageState extends State<EstablishmentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("B)app => pontue, poupando papel (\$)"),
+        title: Text("Estabelecimentos parceiros"),
       ),
       body: StreamBuilder<List<EstabelecimentoModel>>(
         stream: _bloc.outEstabelecimentos,
@@ -43,7 +44,7 @@ class _EstablishmentPageState extends State<EstablishmentPage> {
                     child: Container(
                       width: 94,
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.redAccent),
+                          border: Border.all(color: Colors.pink),
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Text(estabelecimento.tipoEstabelecimento,
                           textAlign: TextAlign.center),
@@ -54,7 +55,7 @@ class _EstablishmentPageState extends State<EstablishmentPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => StatePage(estabelecimento)));
+                            builder: (context) => null));
                   },
                 ),
               ),

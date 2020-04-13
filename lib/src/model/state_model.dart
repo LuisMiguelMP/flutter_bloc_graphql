@@ -5,7 +5,7 @@ part 'state_model.g.dart';
 
 @JsonSerializable()
 class StateModel {
-  @JsonKey(name: 'localizacao')
+  @JsonKey(name: 'cnpj')
   int stateId;
 
   @JsonKey(name: 'nome')
