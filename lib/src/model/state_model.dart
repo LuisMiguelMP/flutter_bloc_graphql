@@ -14,11 +14,12 @@ class StateModel {
   String localizacao;
   String tipoEstabelecimento;
   String icone;
+  String logradouro;
 
   @JsonKey(name: "estabelecimento")
   EstabelecimentoModel estabelecimento;
 
-  StateModel({this.localizacao, this.nome, this.cnpj, this.icone, this.tipoEstabelecimento});
+  StateModel({this.localizacao, this.nome, this.cnpj, this.icone, this.tipoEstabelecimento, this.logradouro});
 
   factory StateModel.fromJson(Map<String, dynamic> json) =>
       _$StateModelFromJson(json);

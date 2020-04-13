@@ -17,6 +17,7 @@ class HomeRepository extends Disposable {
         telefone
         tipoEstabelecimento
         icone
+        logradouro
       }
     }
     """;

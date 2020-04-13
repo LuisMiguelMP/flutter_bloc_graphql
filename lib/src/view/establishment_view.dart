@@ -1,7 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:blapp/src/control/home_bloc.dart';
 import 'package:blapp/src/model/estabelecimento_model.dart';
-import 'package:blapp/src/state/state_page.dart';
+import 'package:blapp/src/view/map_view.dart';
 import '../control/home_module.dart';
 
 
@@ -36,7 +38,7 @@ class _EstablishmentPageState extends State<EstablishmentPage> {
                 padding: EdgeInsets.all(13.0),
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundImage: AssetImage(estabelecimento.icone),
+                    backgroundImage: MemoryImage(base64Decode(estabelecimento.icone)),
                   ),
                   title: Text(estabelecimento.nome),
                   trailing: Padding(
@@ -50,12 +52,12 @@ class _EstablishmentPageState extends State<EstablishmentPage> {
                           textAlign: TextAlign.center),
                     ),
                   ),
-                  subtitle: Text(estabelecimento.localizacao),
+                  subtitle: Text(estabelecimento.logradouro),
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => null));
+                            builder: (context) => setLocalizacao(estabelecimento.localizacao)));
                   },
                 ),
               ),

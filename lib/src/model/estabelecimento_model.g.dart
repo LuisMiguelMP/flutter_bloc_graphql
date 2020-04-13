@@ -13,6 +13,7 @@ EstabelecimentoModel _$EstabelecimentoModelFromJson(Map<String, dynamic> json) {
     nome: json['nome'] as String,
     tipoEstabelecimento: json['tipoEstabelecimento'] as String,
     icone: json['icone'] as String,
+    logradouro: json['logradouro'] as String,
   )..states = (json['states'] as List)
       ?.map((e) =>
           e == null ? null : StateModel.fromJson(e as Map<String, dynamic>))
@@ -27,4 +28,5 @@ Map<String, dynamic> _$EstabelecimentoModelToJson(EstabelecimentoModel instance)
       'tipoEstabelecimento':instance.tipoEstabelecimento,
       'icone' : instance.icone,
       'states': instance.states,
+      'logradouro':instance.logradouro,
     };
