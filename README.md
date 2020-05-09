@@ -1,3 +1,3 @@
 # B)app
 
-Projeto Flutter utilizando GraphQL, Hasura, Geração e Leitura de QRCode
+Projeto Flutter utilizando GraphQL, Google Maps, Hasura, Geração e Leitura de QRCode
