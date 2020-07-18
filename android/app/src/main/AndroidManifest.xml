@@ -6,6 +6,7 @@
          In most cases you can leave this as-is, but you if you want to provide
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
+    <uses-sdk android:minSdkVersion="18" />
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="hasuraexample"
@@ -13,7 +14,7 @@
 
                     
         <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD5N6FFNuk33M0Cfq4zyGpY2uOgDesauCY"/>
+            android:value="AIzaSyAmpveTbzymvLiICC2ij1WAbPRhkzOB0Fk"/>
 
         <activity
             android:name=".MainActivity"

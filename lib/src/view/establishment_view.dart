@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:blapp/src/control/home_bloc.dart';
 import 'package:blapp/src/model/estabelecimento_model.dart';
 import 'package:blapp/src/view/map_view.dart';
+import 'package:blapp/src/view/home_view.dart';
 import '../control/home_module.dart';
 
 
@@ -25,7 +26,23 @@ class _EstablishmentPageState extends State<EstablishmentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Estabelecimentos parceiros"),
+        leading: new IconButton(icon: new Icon(Icons.menu),
+            onPressed: () => scaffoldKey.currentState.openDrawer()),
+                title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Estabelecimentos Parceiros",
+              style: TextStyle(color: Colors.white, fontSize: 16.0),
+            ),
+            Text(
+              "Selecione para visualizar no mapa",
+              style: TextStyle(color: Colors.white, fontSize: 14.0),
+            )
+          ],
+        ),
+        actions: <Widget>[new Padding(padding:const EdgeInsets.all(13.0), child:Icon(Icons.search))],
       ),
       body: StreamBuilder<List<EstabelecimentoModel>>(
         stream: _bloc.outEstabelecimentos,

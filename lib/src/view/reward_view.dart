@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:blapp/src/view/home_view.dart';
 
 class RewardScreen extends StatefulWidget {
   @override
@@ -22,7 +23,23 @@ class _RewardState extends State<RewardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: new AppBar(
-          title: new Text('Recompensas disponíveis'),
+                  leading: new IconButton(icon: new Icon(Icons.menu),
+            onPressed: () => scaffoldKey.currentState.openDrawer()),
+                 title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Pontuação e Recompensas",
+              style: TextStyle(color: Colors.white, fontSize: 16.0),
+            ),
+            Text(
+              '(0 disponíveis / 0 resgatados)',
+              style: TextStyle(color: Colors.white, fontSize: 14.0),
+            )
+          ],
+        ),
+          actions: <Widget>[new Padding(padding:const EdgeInsets.all(13.0), child:Icon(Icons.history))],
         ),
         body: new Center(
           child: new Column(
@@ -52,10 +69,10 @@ class _RewardState extends State<RewardScreen> {
 
   Future scan() async {
     try {
-      String barcode = await BarcodeScanner.scan();
-      setState(() => this.barcode = barcode);
+      ScanResult barcode = await BarcodeScanner.scan();
+      setState(() => this.barcode = barcode as String);
     } on PlatformException catch (e) {
-      if (e.code == BarcodeScanner.CameraAccessDenied) {
+      if (e.code == BarcodeScanner.cameraAccessDenied) {
         setState(() {
           this.barcode = 'O usuário não concedeu permissão para utilizar a câmera.';
         });

@@ -7,6 +7,7 @@ import 'dart:ui';
 import 'dart:io';
 import 'package:flutter/rendering.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:blapp/src/view/home_view.dart';
 
 class ScoreScreen extends StatefulWidget {
 
@@ -29,12 +30,15 @@ class ScoreScreenState extends State<ScoreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
+        
+                leading: new IconButton(icon: new Icon(Icons.menu),
+            onPressed: () => scaffoldKey.currentState.openDrawer()),
         title: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Receber pontuação",
+              "Receber Pontuação",
               style: TextStyle(color: Colors.white, fontSize: 16.0),
             ),
             Text(

@@ -5,12 +5,15 @@ import 'establishment_view.dart';
 import 'score_view.dart';
 import 'reward_view.dart';
 
+final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  
   var _bloc = HomeModule.to.getBloc<HomeBloc>();
   int _currentIndex = 0;
 
@@ -33,10 +36,12 @@ RewardScreen()
     _bloc.getEstabelecimentos();
     super.initState();
   }
-
+    
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -64,12 +69,14 @@ RewardScreen()
         ),
       ),
       body: 
+  
       _children[_currentIndex],
            bottomNavigationBar: BottomNavigationBar(
                     onTap: onTabTapped,
        currentIndex: _currentIndex, 
        
        items: [
+         
          BottomNavigationBarItem(
            icon: new Icon(Icons.gps_fixed),
            title: new Text('Estabelecimentos'),
