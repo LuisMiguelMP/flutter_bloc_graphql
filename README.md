@@ -1,3 +1,3 @@
 # B)app
 
-Flutter project using GraphQL, Hasura, Google Maps and QRCode
+Flutter project using BLoC, GraphQL, Hasura, Google Maps and QRCode
